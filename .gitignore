@@ -46,3 +46,4 @@ instance/
 .sqlite
 
 createTestDB.py
+.breakpoints
