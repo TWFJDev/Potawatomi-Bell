@@ -130,12 +130,9 @@ def removeAItem():
 
     conn = sqlite3.connect('current_bell_items.db')
     c = conn.cursor()
-
     c.execute("DELETE FROM items_in WHERE oid = " + str(items[0]))
-
     conn.commit()
     conn.close()
-
     messagebox.showinfo("Bell Closet", "Info has been deleted")
 
     clearEntryBoxes()
@@ -253,7 +250,6 @@ clearEntry.grid(row = 2, column = 5, padx = 10, pady = 10)
 treeTable.bind("<ButtonRelease-1>", selectAnItem)
 
 createDBIfNotExist()
-
 querydb()
 
 bell_closet_tracker.mainloop()
