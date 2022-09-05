@@ -125,12 +125,14 @@ def addItems():
     querydb()
 
 def removeAItem():
+    selected = treeTable.focus()
+    
     x = treeTable.selection()[0]
     treeTable.delete(x)
 
     conn = sqlite3.connect('current_bell_items.db')
     c = conn.cursor()
-    c.execute("DELETE FROM items_in WHERE oid = " + str(items[0]))
+    c.execute("DELETE FROM items_in WHERE oid = " + str(selected))
     conn.commit()
     conn.close()
     messagebox.showinfo("Bell Closet", "Info has been deleted")
